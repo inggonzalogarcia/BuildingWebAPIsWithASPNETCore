@@ -2,7 +2,6 @@ using HPlusSport.API.Classes;
 using HPlusSport.API.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Versioning;
@@ -10,13 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HPlusSport.API
 {
@@ -32,19 +26,21 @@ namespace HPlusSport.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ShopContext>(options => options.UseInMemoryDatabase("Shop"));
+            services.AddDbContext<ShopContext>(options =>
+                options.UseInMemoryDatabase("Shop"));
             services.AddControllers()
-                .ConfigureApiBehaviorOptions(options =>
+                .ConfigureApiBehaviorOptions(options => 
                 {
-                    //options.SuppressModelStateInvalidFilter = true;
-                });
+                    // options.SuppressModelStateInvalidFilter = true;
+                }
+                );
 
-            services.AddApiVersioning(options =>
-            {
+            services.AddApiVersioning(options => {
                 options.ReportApiVersions = true;
                 options.DefaultApiVersion = new ApiVersion(1, 0);
                 options.AssumeDefaultVersionWhenUnspecified = true;
-                options.ApiVersionReader = new HeaderApiVersionReader("X-API-Version");
+                options.ApiVersionReader = 
+                    new HeaderApiVersionReader("X-API-Version");
             });
 
             services.AddVersionedApiExplorer(
@@ -74,14 +70,16 @@ namespace HPlusSport.API
 
             app.UseSwagger();
             app.UseSwaggerUI(options =>
-            {
-                foreach (var description in provider.ApiVersionDescriptions)
                 {
-                    options.SwaggerEndpoint(
-                        $"/swagger/{description.GroupName}/swagger.json",
-                        description.GroupName.ToUpperInvariant());
+                    foreach (var description in provider.ApiVersionDescriptions) 
+                    {
+                        options.SwaggerEndpoint(
+                            $"/swagger/{description.GroupName}/swagger.json",
+                            description.GroupName.ToUpperInvariant());    
+                    }
                 }
-            });
+               );
         }
     }
+
 }
