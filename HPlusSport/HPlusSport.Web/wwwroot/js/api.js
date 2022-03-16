@@ -14,9 +14,9 @@ if (productsList) {
 function showProducts(products) {
     products.forEach(product => {
         let li = document.createElement("li");
-        let text = `${producname} ($${product.price})`;
-        li.appendChild(documencreateTextNode(text));
+        let text = `${product.name} ($${product.price})`;
+        li.appendChild(document.createTextNode(text));
         productsList.appendChild(li);
-        productsList.appendChild(li);
-    })
+    });
 }
+
