@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HPlusSport.API", "HPlusSport.API\HPlusSport.API.csproj", "{CEBC5C88-9E85-461D-8567-9BF3859336A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPlusSport.Web", "HPlusSport.Web\HPlusSport.Web.csproj", "{4793AD6A-4BF9-43AF-A09A-E9D0D73ECE7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HPlusSport.Web", "HPlusSport.Web\HPlusSport.Web.csproj", "{4793AD6A-4BF9-43AF-A09A-E9D0D73ECE7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPlusSport.IdentityServer", "HPlusSport.IdentityServer\HPlusSport.IdentityServer.csproj", "{300C92FB-1539-4CBA-92C6-FA2D3FDBABDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4793AD6A-4BF9-43AF-A09A-E9D0D73ECE7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4793AD6A-4BF9-43AF-A09A-E9D0D73ECE7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4793AD6A-4BF9-43AF-A09A-E9D0D73ECE7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{300C92FB-1539-4CBA-92C6-FA2D3FDBABDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{300C92FB-1539-4CBA-92C6-FA2D3FDBABDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{300C92FB-1539-4CBA-92C6-FA2D3FDBABDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{300C92FB-1539-4CBA-92C6-FA2D3FDBABDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
