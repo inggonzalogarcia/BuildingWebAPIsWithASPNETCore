@@ -35,13 +35,29 @@ namespace HPlusSport.API
                 }
                 );
 
+            services.AddAuthentication("Bearer")
+                .AddJwtBearer("Bearer", options =>
+                {
+                    options.Authority = "http://localhost:51959";
+                    options.RequireHttpsMetadata = false;
+
+                    options.Audience = "hps-api";
+
+                    options.TokenValidationParameters =
+                    new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                    {
+                        ValidateAudience = false
+                    };
+
+                });
+
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(builder =>
                 {
-                    builder.WithOrigins("https://localhost:44315")
-                    .AllowAnyHeader()
-                    .AllowAnyMethod();
+                    builder.WithOrigins("https://localhost:44375")
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
                 });
             });
 
@@ -73,8 +89,9 @@ namespace HPlusSport.API
 
             app.UseCors();
 
+            app.UseAuthentication();
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

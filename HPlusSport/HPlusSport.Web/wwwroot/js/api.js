@@ -3,7 +3,7 @@
 var productsList = document.getElementById("products-list");
 if (productsList) {
     fetch(url)
-        .then(response => reponse.json())
+        .then(response => response.json())
         .then(data => showProducts(data))
         .catch(ex => {
             alert("Something went wrong ...");

@@ -1,4 +1,5 @@
-﻿using IdentityServer4.Models;
+﻿using IdentityModel;
+using IdentityServer4.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace HPlusSport.IdentityServer
             {
                 return new List<ApiResource>
                 {
-                    new ApiResource("hps-api", "H+ Sport API")
+                new ApiResource("hps-api", "H+ Sport API")
                 };
             }
         }
